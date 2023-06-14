@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+    mysqldb:
+        container_name: mysqldb
+        image: mysql:5.7
+        restart: always
+        volumes:
+          - db_data:/var/lib/mysql
+          - ./conf/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+        environment:
+            MYSQL_ROOT_PASSWORD: "${DB_ROOT_PW}"
+            MYSQL_DATABASE: "${DB_NAME}"
+            MYSQL_USER: "${DB_USER}"
+            MYSQL_PASSWORD: "${DB_PW}"
+        ports:
+            - "3307:3306"
+
+    php-apache-environment:
+        container_name: php-apache
+        build:
+            context: ./php
+            dockerfile: Dockerfile
+        depends_on:
+            - mysqldb
+        ports:
+            - 90:80
+volumes:
+  db_data:
+
