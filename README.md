@@ -61,13 +61,13 @@ INSERT INTO products (Name,Price,ImageUrl) VALUES ("Laptop","100","c-1.png"),
 6.png"),("Phone Covers","20","c-7.png"),("Phone","80","c-8.png"),("Laptop","150","c-4.png");
 note: This sql is for table creation and inserting the data on the table.
 # Dockerfile [Under “php/” directory]:
-FROM php:8.0-apache
-RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
-RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y git
-RUN git clone https://github.com/Debaice06/Ansible_Projects_Ecommerce.git /var/www/html/
-RUN sed -i 's/172.20.1.101/mysqldb/g' /var/www/html/index.php# Now for running this we have to write the below command:
-docker-compose up -d
+<p>FROM php:8.0-apache</p>
+<p>RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli</p>
+<p>RUN apt-get update && apt-get upgrade -y</p>
+<p>RUN apt-get install -y git</p>
+<p>RUN git clone https://github.com/Debaice06/Ansible_Projects_Ecommerce.git /var/www/html/</p>
+<p>RUN sed -i 's/172.20.1.101/mysqldb/g' /var/www/html/index.php# Now for running this we have to write the below command:</p>
+<p>docker-compose up -d</p>
 ![image](https://github.com/farzanabjit/Docker/assets/131145991/5c92f560-45d9-4e49-868d-101f0c8bb51b)
 ![image](https://github.com/farzanabjit/Docker/assets/131145991/ecc1dcae-4744-4e1f-aa99-fcbcd5d2bad9)
 ![image](https://github.com/farzanabjit/Docker/assets/131145991/4b923bbc-f2ed-47fc-88fd-e43fdc7b6af1)
